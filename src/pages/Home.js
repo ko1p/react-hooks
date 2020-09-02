@@ -1,6 +1,7 @@
 import React, {Fragment} from "react";
 import {Search} from "../components/Search";
 import {Card} from "../components/Card";
+import {Alert} from "../components/Alert";
 
 export const Home = () => {
 
@@ -8,8 +9,8 @@ export const Home = () => {
 
     return (
         <Fragment>
+            <Alert alert={{text: 'test alert'}} />
             <Search />
-
             <div className="row">
                 {
                     array.map(item => (
