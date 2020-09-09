@@ -1,9 +1,11 @@
-import React from "react"
+import React, {useReducer} from "react"
 import {GitHubContext} from './GitHubContext'
 import {gitHubReducer} from "./gitHubReducer";
-import {CLEAR_USERS, GET_REPOS, GET_USER, SET_LOADING} from "../types";
+import {CLEAR_USERS, GET_REPOS, GET_USER, SET_LOADING, SEARCH_USERS} from "../types";
 
-export const gitHubState = ({children}) => {
+console.log(process.env.REACT_APP_CLIENT_ID, process.env.REACT_APP_CLIENT_SECRET)
+
+export const GitHubState = ({children}) => {
     const initialState = {
         user: {},
         users: [],
@@ -44,9 +46,10 @@ export const gitHubState = ({children}) => {
     const {user, users, loading, repos} = state;
 
     return (
-        <GitHubContext.Provider value={
+        <GitHubContext.Provider value={{
             search, getUser, getRepos, clearUsers, setLoading,
-        }>
+            user, users, loading, repos
+        }}>
             {children}
         </GitHubContext.Provider>
     )
