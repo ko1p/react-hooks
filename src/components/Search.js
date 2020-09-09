@@ -1,9 +1,11 @@
 import React, {useContext, useState} from "react"
 import {AlertContext} from "../context/alert/alertContext"
+import {GitHubContext} from "../context/github/GitHubContext";
 
 export const Search = () => {
 
     const {show} = useContext(AlertContext)
+    const github = useContext(GitHubContext)
 
     const [value, setValue] = useState('')
 
@@ -13,7 +15,7 @@ export const Search = () => {
         }
 
         if (value.trim()) {
-            console.log('make request by value', value)
+            github.search(value.trim())
         } else {
             show('Вы не указали данные пользователя!')
         }
