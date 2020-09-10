@@ -4,7 +4,7 @@ import {GitHubContext} from "../context/github/GitHubContext";
 
 export const Search = () => {
 
-    const {show} = useContext(AlertContext)
+    const alert = useContext(AlertContext)
     const github = useContext(GitHubContext)
 
     const [value, setValue] = useState('')
@@ -14,10 +14,13 @@ export const Search = () => {
             return
         }
 
+        github.clearUsers()
+
         if (value.trim()) {
+            alert.hide()
             github.search(value.trim())
         } else {
-            show('Вы не указали данные пользователя!')
+            alert.show('Вы не указали данные пользователя!')
         }
     }
 
