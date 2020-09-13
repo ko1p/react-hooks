@@ -1,6 +1,7 @@
-import React, {useContext, useEffect} from "react";
-import {GitHubContext} from "../context/github/GitHubContext";
-import {Link} from "react-router-dom";
+import React, {useContext, useEffect} from "react"
+import {GitHubContext} from "../context/github/GitHubContext"
+import {Link} from "react-router-dom"
+import {Repos} from "../components/Repos"
 
 export const Profile = ({match}) => {
 
@@ -69,7 +70,8 @@ export const Profile = ({match}) => {
                     </div>
                 </div>
             </div>
-            {repos.join()}
+
+            <Repos repos={repos}/>
         </>
     )
 }
