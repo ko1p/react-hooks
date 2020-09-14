@@ -55,6 +55,28 @@ code {
   background: coral;
 }
 
+.os-enter {
+  opacity: 0;
+}
+
+.os-enter-active {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.os-exit {
+  opacity: 1;
+}
+
+.os-exit-active {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.os-exit-done {
+  opacity: 0;
+}
+
 @keyframes square {
   0% {
     opacity: 0;
