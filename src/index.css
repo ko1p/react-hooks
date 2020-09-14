@@ -32,7 +32,19 @@ code {
   justify-content: center;
   width: 200px;
   height: 200px;
+}
+
+.square.entering {
   animation: square 1000ms ease-in forwards;
+}
+
+.square.exiting {
+  animation: square 500ms ease-out alternate-reverse;
+}
+
+.square.exited {
+  opacity: 0;
+  transform: translateY(-100px);
 }
 
 .square.blue {
